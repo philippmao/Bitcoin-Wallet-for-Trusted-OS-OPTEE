@@ -24,8 +24,12 @@ repository = "https://github.com/apache/incubator-teaclave-trustzone-sdk.git"
 description = "An example of Rust OP-TEE TrustZone SDK."
 edition = "2018"
 
+[features]
+default = []
+std = ["optee-utee/std", "optee-utee-sys/std"]
+no_panic_handler = []
+
 [dependencies]
-libc = { path = "../../../rust/libc" }
 proto = { path = "../proto" }
 optee-utee-sys = { path = "../../../optee-utee/optee-utee-sys" }
 optee-utee = { path = "../../../optee-utee" }
@@ -39,6 +43,7 @@ ripemd = "0.1.3"
 [build_dependencies]
 uuid = { version = "0.8" }
 proto = { path = "../proto" }
+optee-utee-build = { path = "../../../optee-utee-build" }
 
 [profile.release]
 lto = true
